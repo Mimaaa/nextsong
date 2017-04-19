@@ -2,7 +2,7 @@
 
 We always play music in our classroom from a public Spotify playlist. Every now and then there's someone that doesn't like the current song. In order to solve that problem we are using a NodeMCU with a big red button.
 
-Since recently Spotify has added new endpoints where you for example can make a request to [skip to the next song](https://developer.spotify.com/web-api/skip-users-playback-to-next-track/) in the current playlist, which is exactly what we need!
+Since recently Spotify has added new endpoints where you for example can make a request to [skip to the next song](https://developer.spotify.com/web-api/skip-users-playback-to-next-track/) in the current playlist, which is exactly what we need! Through a connection with all the other NodeMCU's in our classroom people can cast a vote to skip to the next song. If more than two people vote to skip, a request is send.
 
 This is not the official repo (you can find that one [right here](https://github.com/dandevri/minor-wot)), but this is my repo where I am going to experiment with creating the whole API handling through a simple HTML button - which we can later convert/implement in the official app where the button handling is configured.
 
