@@ -13,6 +13,7 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 const STATE_KEY = 'spotify_auth_state';
 
+//Define scopes to the endpoints
 const scopes = ['user-read-private', 'user-read-email', 'user-read-currently-playing', 'user-modify-playback-state'];
 
 const spotifyApi = new Spotify({
@@ -28,6 +29,7 @@ app.use(express.static(__dirname + '/public'))
    .use(cookieParser())
    .use(require('body-parser').urlencoded({extended: true}));
 
+//Set view engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
@@ -88,6 +90,7 @@ app.get('/login', (_, res) => {
    }
  });
 
+//set current route, request currently played song and render data to current view
  app.get('/current', function (req, res) {
    spotifyApi.currentlyPlaying().then(({ body }) => {
      console.log(body);
@@ -95,6 +98,7 @@ app.get('/login', (_, res) => {
    });
  });
 
+//set next route, request next song and redirect to current route
  app.post('/next', function (req, res) {
    spotifyApi.nextTrack().then(({ body }) => {
      console.log(body);
