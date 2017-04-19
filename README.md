@@ -13,6 +13,74 @@ This is not the official repo (you can find that one [right here](https://github
 
 ## How to install the project?
 - Download/clone the repo and run the `npm install` command
+
+## Add this code to the spotify-web-api-node module which you can find at node_modules/spotify-web-api-node/src/spotify-web-api.js
+
+```
+/**
+ * Get the current playing track from the user that has signed in (the current user).
+ * @param {requestCallback} [callback] Optional callback method to be called instead of the promise.
+ * @example getMe().then(...)
+ * @returns {Promise|undefined} A promise that if successful, resolves to an object
+ *          containing information about the user. The amount of information
+ *          depends on the permissions given by the user. If the promise is
+ *          rejected, it contains an error object. Not returned if a callback is given.
+ */
+currentlyPlaying: function(callback) {
+  var request = WebApiRequest.builder()
+    .withPath('/v1/me/player/currently-playing')
+    .build();
+
+  this._addAccessToken(request, this.getAccessToken());
+
+  var promise = this._performRequest(HttpManager.get, request);
+
+  if (callback) {
+    promise.then(function(data) {
+      callback(null, data);
+    }, function(err) {
+      callback(err);
+    });
+  } else {
+    return promise;
+  }
+},
+
+/**
+ * Skip to the next track in user's que
+ * @param {requestCallback} [callback] Optional callback method to be called instead of the promise.
+ * @example getMe().then(...)
+ * @returns {Promise|undefined} A promise that if successful, resolves to an object
+ *          containing information about the user. The amount of information
+ *          depends on the permissions given by the user. If the promise is
+ *          rejected, it contains an error object. Not returned if a callback is given.
+ */
+nextTrack: function(callback) {
+  var request = WebApiRequest.builder()
+    .withPath('/v1/me/player/next')
+    .build();
+
+  this._addAccessToken(request, this.getAccessToken());
+
+  var promise = this._performRequest(HttpManager.post, request);
+
+  if (callback) {
+    promise.then(function(data) {
+      callback(null, data);
+    }, function(err) {
+      callback(err);
+    });
+  } else {
+    return promise;
+  }
+},
+```
+
+## They yet have to add the new endpoints, so that's why you need to add them yourself.
+I am currently working on creating a PR to the official repo.
+
+## Run it.
+
 - Run the `npm start` command to start the server
 - Go to your [localhost](http://localhost:8888)
 - Voila
