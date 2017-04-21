@@ -10,6 +10,7 @@ var dotenv = require ('dotenv').config();
 var CLIENT_ID = process.env.CLIENT_ID;
 var CLIENT_SECRET = process.env.CLIENT_SECRET;
 var REDIRECT_URI = process.env.REDIRECT_URI;
+var PORT = process.env.PORT || 8888;
 var STATE_KEY = 'spotify_auth_state';
 
 // Define scopes for API endpoint data
@@ -141,5 +142,5 @@ function refreshToken (req, res) {
   });
 }
 
-console.log('Listening on 8888');
-app.listen(8888);
+console.log('AWAKEN');
+app.listen(PORT);
