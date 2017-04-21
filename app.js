@@ -3,8 +3,6 @@ var express = require('express');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 var exphbs = require ('express-handlebars');
-var request = require ('request');
-var bodyParser = require ('body-parser');
 var dotenv = require ('dotenv').config();
 
 var CLIENT_ID = process.env.CLIENT_ID;
@@ -27,7 +25,6 @@ var generateRandomString = function (N) {
 var app = express();
 app.use(express.static(__dirname + '/public'))
    .use(cookieParser())
-   .use(require('body-parser').urlencoded({extended: true}))
    .engine('handlebars', exphbs({defaultLayout: 'main'}))
    .set('view engine', 'handlebars')
    .get('/', home)
