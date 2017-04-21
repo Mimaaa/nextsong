@@ -4,6 +4,9 @@
   <li><h2>Title</h2><p>{{data.item.name}}</p></li>
   <li><h2>Album</h2><p>{{data.item.album.name}}</p></li>
 </ul>
-<form action="/next" method="POST">
-    <input type="submit" value="next song" />
+<form method="POST">
+    <input formaction="/preview" type="submit" value="previous song" />
+    <input formaction="/pause" type="submit" value="pause" />
+    <input formaction="/play" type="submit" value="play" />
+    <input formaction="/next" type="submit" value="next song" />
 </form>

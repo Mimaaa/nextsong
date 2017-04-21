@@ -106,6 +106,30 @@ app.get('/login', (_, res) => {
    });
  });
 
+ //set next route, request next song and redirect to current route
+  app.post('/pause', function (req, res) {
+    spotifyApi.pauseTrack().then(({ body }) => {
+      console.log(body);
+      res.redirect('/current');
+    });
+  });
+
+  //set next route, request next song and redirect to current route
+   app.post('/play', function (req, res) {
+     spotifyApi.playTrack().then(({ body }) => {
+       console.log(body);
+       res.redirect('/current');
+     });
+   });
+
+ //set previous route, request previous song and redirect to current route
+  app.post('/previous', function (req, res) {
+    spotifyApi.previousTrack().then(({ body }) => {
+      console.log(body);
+      res.redirect('/current');
+    });
+  });
+
  // requesting access token from refresh token
 app.get('/refresh_token', (req, res) => {
   const { refresh_token } = req.query;
