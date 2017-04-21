@@ -1,12 +1,10 @@
-<h1>Currenly Playing</h1>
-<ul>
-  <li><h2>Artist</h2><p>{{data.item.artists.0.name}}</p></li>
-  <li><h2>Title</h2><p>{{data.item.name}}</p></li>
-  <li><h2>Album</h2><p>{{data.item.album.name}}</p></li>
-</ul>
-<form method="POST">
-    <input formaction="/previous" type="submit" value="previous song" />
-    <input formaction="/play" type="submit" value="play" />
-    <input formaction="/pause" type="submit" value="pause" />
-    <input formaction="/next" type="submit" value="next song" />
-</form>
+<div class="buttons">
+  <h1>currently playing</h1>
+  <h2>{{data.item.artists.0.name}} - {{data.item.name}}</h2>
+  <form method="POST">
+    <button formaction="/previous">←</button>
+    <button formaction="/play">▶</button>
+    <button formaction="/pause">| |</button>
+    <button formaction="/next">→</button>
+  </form>
+</div>
