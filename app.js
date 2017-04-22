@@ -80,18 +80,8 @@ function callback (req, res) {
       spotifyApi.setAccessToken(access_token);
       spotifyApi.setRefreshToken(refresh_token);
 
-      // We can also pass the token to the browser to make requests from there
       // Redirect to current page
-      res.redirect('/current/#' +
-        querystring.stringify({
-          access_token: access_token,
-          refresh_token: refresh_token
-        }));
-    }).catch(err => {
-      res.redirect('/#' +
-        querystring.stringify({
-          error: 'invalid_token'
-        }));
+      res.redirect('/current');
     });
   }
 }
