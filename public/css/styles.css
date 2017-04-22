@@ -33,7 +33,7 @@ button:hover, button:focus {
   color: #e0e0e0;
 }
 
-.buttons {
+.playback {
   display: flex;
   flex-direction: column;
   justify-content: center;
