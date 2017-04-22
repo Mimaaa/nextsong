@@ -5,7 +5,7 @@
   "description": "We are using a NodeMCU with a big red button to create a interactive WoT solution.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
